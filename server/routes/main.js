@@ -4,7 +4,7 @@ const Question = require('../models/Question');
 const User = require('../models/User');
 const bcrypt = require('bcrypt');
 const jwt = require('jsonwebtoken');
-const aLayout = '../views/layouts/auth';
+const aLayout = '../views/layouts/auth-header';
 const jwtSecret = process.env.JWT_SECRET;
 
 // middleware
@@ -109,7 +109,7 @@ router.get('/register', async (req, res) => {
   
           try {
               const user = await User.create({ username, password:hashedPassword });
-              res.redirect('/auth');
+              res.redirect('/auth/login');
           } catch (error) {
               if(error.code === 11000) {
                   res.status(409).send('User already in use.');
