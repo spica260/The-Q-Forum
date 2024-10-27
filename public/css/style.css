@@ -123,6 +123,56 @@ select {
     margin: 20px auto;
   }
 
+  /* Dashboard User login */
+.db-container {
+  display: flex;
+  align-items: center;
+  padding: 10px 0 50px;
+}
+
+.db-title {
+  font-family: Playfair Display, sans-serif;
+  font-style: italic;
+  font-weight: bold;
+  font-size: var(--font-size-lg);
+  text-align: center;
+  padding: 20px 0;
+}
+
+.db-welcome {
+  width: 70%;
+  padding: 0 35px;
+  text-align: center;
+}
+
+.db-cate-container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.db-cate-controls {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 0;
+}
+
+.db-category {
+  padding: 0;
+  margin: 0;
+}
+
+.db-category li {
+  display: flex;
+  justify-content: space-between;
+  padding: 10px 0;
+}
+
+.db-body {
+  padding: 30px 15px 2px;
+  margin: 0;
+}
+
   /* Footer */
 .footer {
     margin: 25px;
