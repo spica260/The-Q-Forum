@@ -41,7 +41,7 @@ router.get('', (req, res) => {
 });
 
 // GET Login
-router.get('/auth', async (req, res) => {
+router.get('/login', async (req, res) => {
   
     try {
         const locals = {
@@ -59,7 +59,7 @@ router.get('/auth', async (req, res) => {
 });
 
 // POST login
-router.post('/auth', async (req, res) => {
+router.post('/auth/login', async (req, res) => {
     try {
       const { username, password } = req.body;
       
@@ -109,7 +109,7 @@ router.get('/register', async (req, res) => {
   
           try {
               const user = await User.create({ username, password:hashedPassword });
-              res.redirect('/auth/login');
+              res.redirect('/login');
           } catch (error) {
               if(error.code === 11000) {
                   res.status(409).send('User already in use.');
