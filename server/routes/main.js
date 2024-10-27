@@ -194,4 +194,45 @@ router.get('/question/:id', async (req, res) => {
   }
 });
 
+// GET Add Question
+router.get('/add-qn', authMiddleware, async (req, res) => {
+    try {
+        const locals = {
+          title: 'Add New Question',
+          description: 'The Q Forum.'
+        }
+        
+        const data = await Question.find();
+        res.render('auth/add-qn', {
+          locals,
+          data,
+          layout: aLayout
+        });
+    
+      } catch (error) {
+        console.log(error);
+      }
+});
+
+// POST Add Question
+router.post('/add-qn', authMiddleware, async (req, res) => {
+  try {
+    try {
+      const newQuestion = new Question({
+        question: req.body.question,
+        category: req.body.category,
+        reply: req.body.reply
+      });
+
+      await Question.create(newQuestion);
+      res.redirect('/categories/food');
+    } catch (error) {
+      console.log(error);
+    }
+
+  } catch (error) {
+    console.log(error);
+  }
+});
+
 module.exports = router;

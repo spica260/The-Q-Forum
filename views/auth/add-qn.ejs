@@ -1,0 +1,27 @@
+<div class="container">
+
+    <div class="db-title">░ Add New Question ░</div>
+  
+    <a href="/categories/food">&larr; Back</a>
+  
+    <div class="add-qn">
+        <div class="add-qn-body">
+            
+            <form action="/add-qn" method="POST">
+            
+              <label for="qn">Add your question:</label>
+              <input type="text" id="qn" name="question" value="?">
+            
+              <label for="category">Choose a category:</label>
+              <select id="category" name="category" required>
+                <option value="">-Please choose an option-</option>
+                <option value="food">Food</option>
+              </select>
+            
+              <input type="submit" value="Add" class="btn">
+            
+            </form>
+        </div>
+  </div>
+  
+  </div>
