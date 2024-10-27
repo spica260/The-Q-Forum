@@ -1,0 +1,118 @@
+@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
+
+:root {
+    --black: #1c1c1c;
+    --gray: #7e7e7e;
+    --gray-light: #e4e4e4;
+    --purple: #6d2d7d;
+    --lilac-light: #e1d4e6;
+    --red: #d8304f;
+    --font-size-p: 1rem;
+    --font-size-md: 1.2rem;
+    --font-size-lg: 1.8rem;
+}
+
+body {
+    font-family: Playfair Display, sans-serif;
+    color: var(--black);
+    font-size: var(--font-size-base);
+    background-color: var(--lilac-light);
+    margin: 0;
+}
+
+a { color: var(--black); }
+
+h1 {
+    font-size: var(--font-size-lg);
+    font-style: italic;
+}
+
+h2 {
+    font-size: var(--font-size-lg);
+    font-style: italic;
+}
+h3 {
+    font-size: var(--font-size-md);
+    font-style: italic;
+}
+
+input[type="text"],
+input[type="email"],
+input[type="password"],
+input[type="search"],
+textarea,
+select {
+    font-family: Playfair Display, sans-serif;
+    font-size: var(--font-size-p);
+    display: block;
+    box-sizing: border-box;
+    width: 100%;
+    padding: 0.7rem 0.75rem;
+    margin-bottom: 1rem;
+}
+
+.btn {
+    background-color: var(--black);
+    border: none;
+    color: white;
+    padding: 16px 32px;
+    text-decoration: none;
+    margin: 4px 2px;
+    cursor: pointer;
+}
+
+.container {
+    max-width: 982px;
+    margin: 0 auto;
+    padding: 5px 30px;
+    height: 600px;
+}
+
+.main {
+    padding: 20px 0;
+}
+
+/* Main Header */
+.header {
+    display: grid;
+    align-items: center;
+    grid-template-columns: 1fr 1fr;
+    grid-template-rows: auto;
+    grid-template-areas: "logo button";
+    padding-top: 20px;
+  }
+  
+  .header-logo {
+    font-weight: 800;
+    font-size: var(--font-size-lg);
+    text-decoration: none;
+    grid-area: logo;
+  }
+  
+  @media only screen and (min-width: 768px) {
+    .header {
+      grid-template-columns: auto 1fr auto;
+      grid-template-areas: 
+      "logo button";
+    }
+  }
+    
+  .header-logo:hover {
+    text-decoration: underline;
+  }
+  
+  .header-logo, .header-btn {
+    width: 100%;
+  }
+  
+  .header-btn {
+    display: flex;
+    justify-content: end;
+    grid-area: button;
+  }
+
+  /* Footer */
+.footer {
+    margin: 25px;
+    text-align: center;
+  }

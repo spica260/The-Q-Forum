@@ -4,7 +4,12 @@ const router = express.Router();
 router.get('', (req, res) => {
 
     try {
-        res.render('index', {});
+        const locals = {
+            title: "The Q Forum",
+            description: "A Simple Q/A Forum with NodeJs."
+        }
+
+        res.render('index', { locals });
 
     } catch (error) {
         console.log(error);
