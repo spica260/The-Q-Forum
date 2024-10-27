@@ -18,18 +18,18 @@ Build with NodeJs, ExpressJs, MongoDB
 
 ## Dependencies Installed
 
-• bcrypt
-• connect-mongo
-• cookie-parser
-• dotenv
-• ejs
-• express
-• express-ejs-layouts
-• express-session
-• jsonwebtoken
-• method-override
-• mongodb
-• mongoose
+bcrypt
+connect-mongo
+cookie-parser
+dotenv
+ejs
+express
+express-ejs-layouts
+express-session
+jsonwebtoken
+method-override
+mongodb
+mongoose
 
 ## Run App
 ```bash
