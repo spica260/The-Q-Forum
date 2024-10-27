@@ -7,6 +7,23 @@ const jwt = require('jsonwebtoken');
 const aLayout = '../views/layouts/auth';
 const jwtSecret = process.env.JWT_SECRET;
 
+// middleware
+const authMiddleware = (req, res, next ) => {
+    const token = req.cookies.token;
+  
+    if(!token) {
+      return res.status(401).send('Unauthorized');
+    }
+  
+    try {
+      const decoded = jwt.verify(token, jwtSecret);
+      req.userId = decoded.userId;
+      next();
+    } catch(error) {
+      res.status(401).send('Unauthorized');
+    }
+  }
+
 // GET Home Page
 router.get('', (req, res) => {
 
@@ -60,7 +77,7 @@ router.post('/auth', async (req, res) => {
   
       const token = jwt.sign({ userId: user._id}, jwtSecret );
       res.cookie('token', token, { httpOnly: true });
-      res.redirect('/');
+      res.redirect('/dashboard');
   
     } catch (error) {
       console.log(error);
@@ -110,5 +127,27 @@ router.get('/register', async (req, res) => {
     res.clearCookie('token');
     res.redirect('/');
   });  
+
+// GET Dashboard
+router.get('/dashboard', authMiddleware, async (req, res) => {
+  
+    try {
+        const locals = {
+          title: 'Dashboard - The Q Forum',
+          description: 'Dashboard for users of The Q Forum.'
+        }
+    
+        const data = await Question.find();
+
+        res.render('auth/dashboard', {
+          locals,
+          data,
+          layout: aLayout
+        });
+    
+      } catch (error) {
+        console.log(error);
+      }
+});
 
 module.exports = router;
