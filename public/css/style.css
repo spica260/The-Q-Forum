@@ -111,6 +111,18 @@ select {
     grid-area: button;
   }
 
+  /* HomePage */
+.homePage {
+    padding: 10px 0;
+    display: grid;
+    grid-template-columns: 1fr;
+    justify-items: center;
+  }
+  .homePage-txt {
+    width: 210px;
+    margin: 20px auto;
+  }
+
   /* Footer */
 .footer {
     margin: 25px;
