@@ -235,4 +235,58 @@ router.post('/add-qn', authMiddleware, async (req, res) => {
   }
 });
 
+// GET Add Reply
+router.get('/add-reply/:id', authMiddleware, async (req, res) => {
+    try {
+      
+    const locals = {
+      title: "Replies",
+      description: "The Q Forum.",
+    };
+
+    const data = await Question.findOne({ _id: req.params.id });
+
+    res.render('auth/add-reply', {
+      locals,
+      data,
+      layout: aLayout
+    })
+
+  } catch (error) {
+    console.log(error);
+  }
+
+});
+
+// PUT Add Reply
+router.put('/add-reply/:id', authMiddleware, async (req, res) => {
+  try {
+    
+    await Question.findByIdAndUpdate(req.params.id, {
+      question: req.body.question,
+      category: req.body.category,
+      reply: req.body.reply,
+      createdAt: Date.now()
+    });
+
+    res.redirect(`/question/${req.params.id}`);
+
+  } catch (error) {
+    console.log(error);
+  }
+
+});
+
+// Delete question
+router.delete('/delete-question/:id', authMiddleware, async (req, res) => {
+  
+  try {
+    await Question.deleteOne( { _id: req.params.id } );
+    res.redirect('/categories/food');
+  } catch (error) {
+    console.log(error);
+  }
+
+});
+
 module.exports = router;

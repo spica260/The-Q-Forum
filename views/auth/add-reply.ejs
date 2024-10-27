@@ -8,7 +8,16 @@
     
     <div class="add-qn">
       <div class="add-qn-body">
-          
+        <form action="/add-reply/<%= data._id %>?_method=PUT" method="POST">
+
+          <h2><%= data.question %></h2>
+  
+          <label for="reply"><b>Reply</b></label>
+          <textarea name="reply" cols="20" rows="4"><%= data.reply %></textarea>
+  
+          <input type="submit" value="Submit" class="btn">
+  
+        </form>
       </div>
     </div>
     
