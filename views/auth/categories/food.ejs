@@ -1,0 +1,38 @@
+<div class="db-body">
+
+    <div class="db-title">░ Food ░</div>
+  
+    <div class="db-cate-controls">
+  
+      <a href="/dashboard">&larr; Back</a><br />
+      <a href="/add-qn" class="btn button">+ Add New Question</a>
+  
+    </div>
+  
+  </div>
+  
+  <h3>Questions:</h3>
+  
+  <div class="db-cate-container">
+      
+      <ul class="db-questions">
+        <% data.forEach(question => { %>
+         
+          <li>
+            <a href="/question/<%= question._id %>"><%= question.question %> ?</a>
+  
+            <div class="db-qn-controls">
+              <a href="/question/<%= question._id %>" class="btn">View Answers</a>
+  
+              <a href="/add-reply/<%= question._id %>" class="btn">Reply</a>
+      
+              <form action="/delete-question/<%= question._id %>?_method=DELETE" method="POST">
+                <input type="submit" value="Delete" class="btn-delete">
+              </form>
+            </div>
+  
+          </li>
+        <% }) %>
+      </ul>
+  
+  </div>

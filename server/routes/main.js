@@ -150,4 +150,48 @@ router.get('/dashboard', authMiddleware, async (req, res) => {
       }
 });
 
+// GET Categories route
+router.get('/categories/food', authMiddleware, async (req, res) => {
+  
+    try {
+        const locals = {
+          title: 'Dashboard - The Q Forum',
+          description: 'Dashboard for users of The Q Forum'
+        }
+    
+        const data = await Question.find();
+        
+        res.render('auth/categories/food', {
+          locals,
+          data,
+          layout: aLayout
+        });
+    
+      } catch (error) {
+        console.log(error);
+      }
+  });
+
+// GET Questions Route
+router.get('/question/:id', async (req, res) => {
+   try {
+        let slug = req.params.id;
+ 
+        const data = await Question.findById({ _id: slug });
+ 
+        const locals = {
+            title: data.question,
+            description: "The Q Forum.",
+        };
+
+        res.render('auth/question', { 
+            locals,
+            data,
+            currentRoute: `/auth/question/${slug}`
+        });
+  } catch (error) {
+    console.log(error);
+  }
+});
+
 module.exports = router;

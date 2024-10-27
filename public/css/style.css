@@ -173,6 +173,44 @@ select {
   margin: 0;
 }
 
+.db-questions {
+  width: 100%;
+  padding: 15px;
+  margin: 0;
+}
+
+.db-qn-controls form {
+  display: inline-block;
+}
+
+.db-qn-controls .btn {
+  display: inline-block;
+  background-color: var(--purple);
+  color: var(--gray-light);
+  border: 0;
+  text-decoration: none;
+  font-size: var(--font-size-p);
+  padding: 4px 8px;
+  line-height: 2;
+}
+
+label {
+  line-height: 2;
+}
+
+.qn-page {
+  max-width: 100%;
+  display: flex;
+  justify-content: center;
+}
+
+.question {
+  width: 520px;
+  height: auto;
+  padding: 15px 35px 35px;
+  background-color: var(--gray-light);
+}
+
   /* Footer */
 .footer {
     margin: 25px;
