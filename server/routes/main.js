@@ -67,4 +67,48 @@ router.post('/auth', async (req, res) => {
     }
   });
 
+  // GET Register
+router.get('/register', async (req, res) => {
+  
+    try {
+        const locals = {
+            title: "Register",
+            description: "Register Page For The Q Forum."
+        }
+  
+        res.render('auth/register', { locals });
+  
+    } catch(error) {
+        console.log(error);
+    }
+  });
+  
+  // POST register
+  router.post('/register', async (req, res) => {
+    
+      try {
+          const { username, password } = req.body;
+          const hashedPassword = await bcrypt.hash(password, 10);
+  
+          try {
+              const user = await User.create({ username, password:hashedPassword });
+              res.redirect('/auth');
+          } catch (error) {
+              if(error.code === 11000) {
+                  res.status(409).send('User already in use.');
+              }
+              res.status(500).send('Internal server error.')
+          }
+  
+      } catch(error) {
+          console.log(error);
+      }
+  });
+  
+  // GET logout
+  router.get('/logout', (req, res) => {
+    res.clearCookie('token');
+    res.redirect('/');
+  });  
+
 module.exports = router;
