@@ -1,4 +1,4 @@
-# Q/A Forum App | Project 05
+# Q/A Forum App
 The Q Forum
 
 ## Description
@@ -13,8 +13,6 @@ Build with NodeJs, ExpressJs, MongoDB
 
 • Javascipt
 
-## Github Pages
-[The Q Forum](https://github.com/spica260/The-Q-Forum)
 
 ## Dependencies Installed
 
@@ -31,10 +29,6 @@ method-override
 mongodb
 mongoose
 
-## Run App
-```bash
-npm run dev
-```
 
 # Project by
 
